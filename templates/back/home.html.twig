@@ -1,0 +1,43 @@
+{% extends 'back.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML en dehors des block twig #}
+{% block main %}
+    {% set category = app.request.get('searchBy')  %}
+    <form id="form" method="get">
+        <div>
+        <label for="categories">Filtrer par</label>
+        </div>
+        <select name="searchBy" id="categories" onchange="document.getElementById('form').submit()">
+            <option value="">Tout</option>
+            {% for c in categories %}
+                <option value="{{c.id}}" {% if c.id == category%} selected="selected" {% endif%} >{{c.name}}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+        {% for g in tabDeGazouillis%}
+
+            <div id='gazouillis'>
+                <div id='gazouillis-pic'>
+                    <i class='fas fa-comment-dots'></i>
+                </div>
+                <div id='gazouillis-infos'>
+                    <div id='gazouillis-pseudo'>
+                        Pseudo<span id='gazouillis-date'>le {{ g.dateCreated | date('d/m/Y') }} à {{ g.dateCreated | date('H:i') }} </span>
+                    </div>
+                    <div id='gazouillis-message'>
+                        {{ g.content }}
+                    </div>
+                    <div style = "margin-left: 1.5rem;">
+
+                            {{ g.category.name }}
+
+                    </div>
+                    <a href="{{ path('back_gazouillis_modifier', {id:g.id}) }}">Modifier</a>
+                </div>
+            </div>
+        {% endfor %}
+    <a id="gazouiller" href="{{ path('back_categorie_gerer')}}"><i class="fas fa-feather-alt"></i><span id="gazouiller-text">Gérer les catégories</span></a>
+{% endblock %}
+{% block title %}{{ parent() }} - Home{% endblock %}
+{# avec parent je recupere le contenu du bloque parent #}

@@ -1,0 +1,31 @@
+{% extends 'front.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML en dehors des block twig #}
+
+{% block title %}{{ parent() }} - A propos{% endblock %}
+{# avec parent je recupere le contenu du bloque parent #}
+{% block main %}
+    <h1>Recherche</h1>
+{% set category = app.request.get('searchBy')  %}
+<form id="form" method="get">
+    <div id="wish">
+
+
+    <div>
+        <input type="text" name="contains" maxlength="25" pattern=".{1,}" class="field" placeholder="Intitulé de la recherche">
+    </div>
+    <div style="display: flex; flex-direction: row;">
+        <label for="categories">Filtrer par :</label><select name="searchBy" id="categories" onchange="document.getElementById('form').submit()" style="margin-bottom: 0;">
+            <option value="">Tout</option>
+            {% for c in categories %}
+                <option value="{{c.id}}" {% if c.id == category%} selected="selected" {% endif%} >{{c.name}}</option>
+            {% endfor %}
+        </select>
+        <button id="submit" type="submit" style="margin-left: 1rem;">Rechercher</button>
+    </div>
+
+    </div>
+
+</form>
+    <a id="gazouiller" href="{{ path('gazouillis_ajouter')}}" ><i class="fas fa-feather-alt"></i><span id="gazouiller-text">Gazouiller</span></a>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Bucket List{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/f9102af03b.js" crossorigin="anonymous"></script>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+           <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+        {% endblock %}
+
+        <link rel="icon" type="image/png" href="{{ asset('img/logo.svg') }}"/>
+
+        {% block javascripts %}
+            {% endblock %}
+
+    </head>
+    <body>
+        <header>
+            <div>
+            <h1><i class="fas fa-dove" id="logo"></i> Gazouillis </h1><h3> <span class="">Back Office </span></h3><h1 style="margin-left: 0.5rem;"> - {{ "now"|date("d/m/Y") }} </h1>
+
+            </div>
+        </header>
+        <main>
+            <section id="content">
+            {% block main %}{% endblock %}
+
+            </section>
+
+        </main>
+        <footer>
+            {% set currentPath = app.request.get('_route') %}
+            <a href="{{ path('back_home')}}">{% if currentPath == 'back_home'%}<i class="fas fa-flag" style="color: rgb(29, 161, 242);"></i>{% else %} <i class="far fa-flag"></i>{% endif %} <span class="text">Home</span></a>
+            <a href="">{% if currentPath == ''%}<i class="fas fa-search" style="color: rgb(29, 161, 242);"></i>{% else %} <i class="fas fa-search"></i>{% endif %} <span class="text">Rechercher</span></a>
+            <a href="{{ path('contact')}}">{% if currentPath == 'contact'%}<i class="fas fa-envelope" style="color: rgb(29, 161, 242);"></i></i>{% else %}<i class="far fa-envelope"></i>{% endif %} <span class="text">Messages</span></a>
+        </footer>
+
+    </body>
+</html>

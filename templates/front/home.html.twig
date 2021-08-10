@@ -1,0 +1,64 @@
+{% extends 'front.html.twig' %}
+{# on vient charger le template #}
+{# AUCUN CODE HTML en dehors des block twig #}
+{% block main %}
+
+    {% for g in tabDeGazouillis%}
+
+    <div id='gazouillis'>
+        <div id='gazouillis-pic'>
+            <i class='fas fa-comment-dots'></i>
+        </div>
+        <div id='gazouillis-infos'>
+            <div id='gazouillis-pseudo'>
+                {{ g.user.usertag}} <span id="gazouillis-date">{{ g.user.username }}</span> <span id="gazouillis-date">·</span>
+                    <span class="popover__wrapper">
+                        <a>
+                            <span class="popover__title" id='gazouillis-date'>{# endDate and startDate are strings or DateTime objects #}
+                                {% set startDate = g.dateCreated %}
+                                {% set difference = date( 'now' | date() ).diff(date(startDate)) %}
+                                {% set leftDays = difference.days %}
+                                {% set leftHours = difference.h %}
+                                {% set leftMinutes = difference.i %}
+                                {% set leftSec = difference.s %}
+                                {% if leftDays<=2 %}
+                                    {% if (leftDays>0) %}
+                                    {{ leftDays }} j
+                                    {% endif %}
+                                    {% if (leftHours>0) %}
+                                    {{ leftHours }} h
+                                    {% endif %}
+                                    {% if((leftMinutes > 0) and (leftHours<1)) %}
+                                    {{ leftMinutes }} min
+                                    {% endif %}
+                                    {% if(leftMinutes < 1) %}
+                                    {{ leftSec }} s
+                                    {% endif %}
+                                {% else %}
+                                    {{ g.dateCreated | format_datetime(locale='fr',pattern="d MMMM") }}
+                                {% endif%}
+
+                                    </span>
+                        </a>
+                        <div class="popover__content">
+                            <span class="popover__message">{{ g.dateCreated | format_datetime(locale='fr',pattern="a h:mm · d MMMM y") }}</span>
+
+                        </div>
+                    </span>
+            </div>
+            <div id='gazouillis-message'>
+                {{ g.content }}
+            </div>
+            <div style = "margin-left: 1.5rem;">
+
+                    {{ g.category.name }}
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <a id="gazouiller" href="{{ path('gazouillis_ajouter')}}" ><i class="fas fa-feather-alt"></i><span id="gazouiller-text">Gazouiller</span></a>
+
+{% endblock %}
+{% block title %}{{ parent() }} - Home{% endblock %}
+{# avec parent je recupere le contenu du bloque parent #}

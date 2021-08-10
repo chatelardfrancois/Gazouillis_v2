@@ -1,0 +1,74 @@
+{% extends 'front.html.twig' %}
+
+{% block title %} Gazouiller - {{ parent() }} {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/gazouiller.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+{% endblock %}
+
+{% block header %}
+    <div>
+
+
+        <label id="burger-button" for="burger">
+            <i class="fas fa-arrow-left" onclick="history.back()"></i>
+        </label>
+
+        <button id="gazouiller" onclick="document.getElementById('form').submit()" disabled>Gazouiller</button>
+        <div id="overlay"></div>
+    </div>
+{% endblock %}
+
+{% block main%}
+
+    <div class="left">
+        <i class="fas fa-user" id="profile-pic"></i>
+    </div>
+    <div class="right">
+        <form name="gazouillis" id="form" method="post">
+        {# <form action ="..." method="..." > #}
+        {{ form_start(formGazouillis) }}
+        {{ form_row(formGazouillis.content) }}
+
+
+
+        {# lable + input  #}
+
+        <script type="text/javascript">
+
+            function count(obj){
+                var maxLength = 250;
+
+                if(obj.value.length === maxLength){
+                    var strLength = obj.value.length;
+                    document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+'</span>';
+                }else{
+                    document.getElementById("charNum").style.visibility = "visible";
+                    document.getElementById("charNum").innerHTML = obj.value.length;
+                }
+                if(obj.value.trim().length===0){
+                    document.getElementById("charNum").style.visibility = "hidden";
+                }
+            }
+            function validate(){
+
+                if(document.getElementById("gazouillis_content").value.trim().length>0){
+                    document.getElementById("gazouiller").disabled=false;
+                }else{
+                    document.getElementById("gazouiller").disabled=true;
+                }
+            }
+        </script>
+            <div style="display: flex; align-items: center;">
+                {{ form_row(formGazouillis.category) }}
+                <i id="add" class="far fa-image"></i>
+                <i id="add" class="far fa-smile"></i>
+                <div id="charNum">0</div>
+            </div>
+            {{ form_end(formGazouillis) }}
+        </form>
+    </div>
+    {# </form> #}
+{% endblock %}

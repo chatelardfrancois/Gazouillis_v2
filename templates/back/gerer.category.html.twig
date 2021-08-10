@@ -1,0 +1,63 @@
+{% extends 'back.html.twig' %}
+
+{% block title %} Ajouter Wish - {{ parent() }} {% endblock %}
+
+{% block main%}
+    <h1>Liste des catégories</h1>
+    {% for c in categories %}
+        <div id="gazouillis" style="display: flex;
+             justify-content: space-between; align-items: center">
+            <div id="gazouillis-message">
+                {{ c.name }}
+            </div>
+            {% if c.id!=-1 %}
+<div >
+    <a class="button danger" style="padding: 0.3rem 0.8rem 0.3rem 0.8rem; margin-top:0;" href="{{ path('back_categorie_enlever', {id:c.id})}}">Supprimer</a>
+</div>
+            {% endif %}
+
+
+        </div>
+
+    {% endfor %}
+    <h1>Ajouter une Catégorie</h1>
+    <div >
+        {{ form_start(formCate) }}
+        <div id="wish">
+        {# <form action ="..." method="..." > #}
+        {{ form_row(formCate.name) }}
+        <div id="charNum1">0</div>
+
+        {# lable + input  #}
+
+        <script type="text/javascript">
+            function countCate(obj){
+                var maxLength = 25;
+
+                if(obj.value.length === maxLength){
+                    var strLength = obj.value.length;
+                    document.getElementById("charNum1").innerHTML = '<span style="color: red;">'+strLength+'</span>';
+                }else{
+                    document.getElementById("charNum1").style.visibility = "visible";
+                    document.getElementById("charNum1").innerHTML = obj.value.length;
+                }
+                if(obj.value.trim().length===0){
+                    document.getElementById("charNum1").style.visibility = "hidden";
+                }
+            }
+
+            function validate(){
+                if(document.getElementById("category_name").value.trim().length>0){
+                    document.getElementById("submit").disabled=false;
+                }else{
+                    document.getElementById("submit").disabled=true;
+                }
+            }
+        </script>
+
+        <button id="submit" type="submit" disabled>Ajouter</button>
+        </div>
+        {{ form_end(formCate) }}
+    </div>
+    {# </form> #}
+{% endblock %}

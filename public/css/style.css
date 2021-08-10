@@ -1,0 +1,382 @@
+body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif!important;
+    scrollbar-color: rgb(185, 202, 211) rgb(247, 249, 249);
+}
+
+header, footer{
+    display: flex;
+    width: 100%;
+    height : 5rem;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+}
+
+header{
+    border-bottom: rgb(207, 217, 222);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    top: 0;
+}
+footer{
+    border-top: rgb(239, 243, 244);
+    border-top-style: solid;
+    border-top-width: 1px;
+    bottom: 0;
+    position: fixed;
+    z-index: 0;
+}
+header > div, footer > div {
+    display: flex;
+    height: 100%;
+    min-width: 50%;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+header > div{
+    justify-content: flex-start;
+}
+footer > div{
+    justify-content: space-evenly;
+}
+footer > a > i{
+    color:rgb(29, 161, 242);
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+    cursor: pointer;
+}
+#logo{
+    color:rgb(29, 161, 242);
+    font-size: 3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+footer > a > i, #profile-pic {
+    color :rgb(83, 100, 113);
+}
+
+header > div > label > i:hover, footer > div > i:hover, #profile-pic:hover{
+    color:rgb(29, 161, 242);
+    background-color: rgba(29, 161, 242, 0.1);
+    border-radius: 999rem;
+}
+header > div > label > i, #profile-pic{
+    margin-right: 1rem;
+    color:rgb(29, 161, 242);
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+    cursor: pointer;
+}
+
+/* header > menu burger */
+#burger {display: none;}
+#overlay {display: none;}
+
+/*seletion de l'element dont l'id est #burger-button suivant l'element dont l'id est burger et l'état est coché*/
+
+
+nav#burger-content {
+    background-color: #fff;
+
+    min-width: 30%;
+    max-width: 75%;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    z-index: 15;
+
+    transition: all .3s;
+}
+
+#burger:checked ~ nav#burger-content {
+    left: 0;
+}
+
+#burger:checked ~ #overlay {
+    display: inherit;
+    background-color:rgba(0,0,0,.4);
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:10;
+    transition:all .3s
+}
+/* header > navigation */
+nav ul, nav > div#profil-infos { list-style: none; padding: 1rem; margin: 0;}
+nav ul a {
+    font-size : 1.2rem;
+    color: #000;
+    text-decoration: none;
+}
+nav ul a:hover {
+    color: #173266;
+    text-decoration: underline;
+}
+#nav-top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: rgb(207, 217, 222);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    height : 5rem;
+}
+#nav-top >label > i {
+    font-size: 2rem;
+    color: rgb(29, 161, 242);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    cursor: pointer;
+}
+#nav-top >label>i:hover{
+    background-color: rgba(29, 161, 242, 0.1);
+    border-radius: 999rem;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    top:5rem;
+    bottom: 5rem;
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-left-color: rgb(239, 243, 244) ;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(239, 243, 244) ;
+    border-right-style: solid;
+    border-right-width: 1px;
+    position: fixed;
+    z-index: 0;
+    overflow: auto;
+    max-width: 50%;
+
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(185, 202, 211) rgb(247, 249, 249);
+
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 999rem;
+    background: rgb(185, 202, 211);
+}
+
+#gazouiller{
+    font-weight: bold;
+    position: fixed;
+    z-index: 0;
+    bottom: 15%;
+    right:20%;
+    color: white;
+    background-color:rgb(29, 161, 242) ;
+    font-size: 2rem;
+    padding: 0.4rem 1.5rem 0.7rem 1.5rem;
+    border-radius: 999rem;
+    text-decoration: none;
+    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 8px, rgba(101, 119, 134, 0.25) 0px 1px 3px 1px;
+    border: none;
+    cursor: pointer;
+
+}
+#gazouiller > i{
+    margin-right: 0.5rem;
+}
+#gazouiller:hover{
+    background-color: rgb(26, 145, 218);
+}
+#gazouiller:disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+#gazouillis{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(239, 243, 244);
+    cursor: pointer;
+}
+#gazouillis:hover{
+    background-color: rgba(0, 0, 0, 0.03);
+}
+#gazouillis-pic{
+    font-size: 3rem;
+    color : rgb(83, 100, 113);
+}
+#gazouillis-infos{
+    display: flex;
+    flex-direction: column;
+}
+#gazouillis-message, #gazouillis-pseudo {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+}
+#gazouillis-pseudo {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+#gazouillis-date{
+    font-size: 1.1rem;
+    color: rgb(83, 100, 113);
+    font-weight: initial;
+}
+h1{
+    margin: 0;
+}
+#infos-pic{
+    font-size: 5rem;
+    color: rgb(29, 161, 242);
+}
+#infos-pseudo{
+    font-size: 1.3rem;
+}
+
+#wish > div{
+    display: flex;
+    flex-direction: column;
+}
+#content >h1{
+    padding: 1rem;
+}
+#wish{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+button{
+   padding: 1rem;
+   border: none;
+   font-weight: bold;
+   border-radius: 9999rem;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+
+}
+button:hover{
+    background-color: rgb(26, 145, 218);
+}
+input, select{
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif!important;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
+
+}
+#wish > div > label{
+    display: none;
+}
+#submit:disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+textarea{
+    resize: none;
+    height: 7rem;
+}
+
+#submit{
+    width: 100%;
+}
+
+form > div > div > ul + input{
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: red;
+
+}
+form >div > div > ul {
+    margin: 0;
+    color: red;
+
+}
+form >div > div > ul > li{
+    list-style:none;
+    margin-left: -1rem;
+}
+.button{
+    padding: 1rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 9999rem;
+    background-color: rgb(29, 161, 242);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+}
+.danger{
+    background-color: rgba(255, 0, 0, 0.9);
+}
+.danger:hover{
+    background-color: rgb(215, 0, 0);
+}
+
+.popover__title:hover{
+    text-decoration: underline;
+}
+
+.popover__wrapper {
+    position: relative;
+    display: inline-block;
+}
+.popover__wrapper>a{
+    text-decoration:none;
+}
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.70);
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.7s;
+}
+.popover__message {
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    padding: 0rem 0.2rem 0rem 0.2rem;
+    font-weight: initial;
+}

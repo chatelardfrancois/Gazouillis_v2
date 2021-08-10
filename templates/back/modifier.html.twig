@@ -1,0 +1,58 @@
+{% extends 'back.html.twig' %}
+
+{% block title %} Ajouter Wish - {{ parent() }} {% endblock %}
+
+{% block main%}
+
+    <h1>Modifier</h1>
+    <div >
+        {{ form_start(formGazouillis) }}
+        <div id="wish">
+            {# <form action ="..." method="..." > #}
+
+            {{ form_row(formGazouillis.content) }}
+            <div id="charNum">0</div>
+
+            <div id="gazouillis-message">
+                Catégorie :
+            </div>
+
+            {{ form_row(formGazouillis.category) }}
+
+            {# lable + input  #}
+
+            <script type="text/javascript">
+
+                function count(obj){
+                    var maxLength = 250;
+
+                    if(obj.value.length === maxLength){
+                        var strLength = obj.value.length;
+                        document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+'</span>';
+                    }else{
+                        document.getElementById("charNum").style.visibility = "visible";
+                        document.getElementById("charNum").innerHTML = obj.value.length;
+                    }
+                    if(obj.value.trim().length===0){
+                        document.getElementById("charNum").style.visibility = "hidden";
+                    }
+                }
+                function validate(){
+
+                    if(document.getElementById("gazouillis_content").value.trim().length>0){
+                        document.getElementById("submit").disabled=false;
+                    }else{
+                        document.getElementById("submit").disabled=true;
+                    }
+                }
+            </script>
+
+            <button id="submit" type="submit" disabled>Modifier</button>
+            <a class="button danger" href="{{ path('back_gazouillis_enlever', app.request.attributes.get('_route_params'))}}" onclick="return confirm('Êtes-vous sûr de votre choix ?')">Effacer</a>
+
+        </div>
+        {{ form_end(formGazouillis) }}
+    </div>
+    {# </form> #}
+
+{% endblock %}
