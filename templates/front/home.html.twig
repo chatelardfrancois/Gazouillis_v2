@@ -21,7 +21,7 @@
                         <span class="popover__message">
                             <div><i id="profile-pic" class="fas fa-user"></i></div>
                             <div style="margin-bottom: 0.5rem;"><a><div id="gazouillis-pseudo" style="margin-left:0;">{{ g.user.usertag }}{% if "ROLE_CERTIFIED" in g.user.getRoles() %} <span><i class="fas fa-check-circle"></i></span>{% endif %}</div><div id="gazouillis-date">{{ g.user.username }}</div></a></div>
-                            <div style="font-size: 1.1rem;">{{ g.user.bio }}</div>
+                            <div style="font-size: 1.1rem;">{{ g.user.bio|nl2br }}</div>
                         </span>
                     </div>
                 </span>
