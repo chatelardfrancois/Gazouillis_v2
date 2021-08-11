@@ -11,10 +11,24 @@
         </div>
         <div id='gazouillis-infos'>
             <div id='gazouillis-pseudo'>
-                {{ g.user.usertag}} <span id="gazouillis-date">{{ g.user.username }}</span> <span id="gazouillis-date">·</span>
-                    <span class="popover__wrapper">
+                <span class="popover__wrapper">
+                    <a>
+                        <span class="popover__title" >
+                            <span class="decoration">{{ g.user.usertag}}</span> {% if "ROLE_CERTIFIED" in g.user.getRoles() %}<span><i class="fas fa-check-circle"></i></span> {% endif %}<span id="gazouillis-date">{{ g.user.username }}</span>
+                        </span>
+                    </a>
+                    <div class="popover__content">
+                        <span class="popover__message">
+                            <div><i id="profile-pic" class="fas fa-user"></i></div>
+                            <div style="margin-bottom: 0.5rem;"><a><div id="gazouillis-pseudo" style="margin-left:0;">{{ g.user.usertag }}{% if "ROLE_CERTIFIED" in g.user.getRoles() %} <span><i class="fas fa-check-circle"></i></span>{% endif %}</div><div id="gazouillis-date">{{ g.user.username }}</div></a></div>
+                            <div style="font-size: 1.1rem;">{{ g.user.bio }}</div>
+                        </span>
+                    </div>
+                </span>
+                <span id="gazouillis-date">·</span>
+                    <span class="popover_date_wrapper">
                         <a>
-                            <span class="popover__title" id='gazouillis-date'>{# endDate and startDate are strings or DateTime objects #}
+                            <span class="popover_date_title" id='gazouillis-date'>{# endDate and startDate are strings or DateTime objects #}
                                 {% set startDate = g.dateCreated %}
                                 {% set difference = date( 'now' | date() ).diff(date(startDate)) %}
                                 {% set leftDays = difference.days %}
@@ -31,7 +45,7 @@
                                     {% if((leftMinutes > 0) and (leftHours<1)) %}
                                     {{ leftMinutes }} min
                                     {% endif %}
-                                    {% if(leftMinutes < 1) %}
+                                    {% if((leftMinutes < 1) and (leftHours<1)) %}
                                     {{ leftSec }} s
                                     {% endif %}
                                 {% else %}
@@ -40,14 +54,14 @@
 
                                     </span>
                         </a>
-                        <div class="popover__content">
-                            <span class="popover__message">{{ g.dateCreated | format_datetime(locale='fr',pattern="a h:mm · d MMMM y") }}</span>
+                        <div class="popover_date_content">
+                            <span class="popover_date_message">{{ g.dateCreated | format_datetime(locale='fr',pattern="a h:mm · d MMMM y") }}</span>
 
                         </div>
                     </span>
             </div>
             <div id='gazouillis-message'>
-                {{ g.content }}
+                {{ g.content|nl2br }}
             </div>
             <div style = "margin-left: 1.5rem;">
 

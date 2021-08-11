@@ -41,8 +41,7 @@ class FrontController extends AbstractController
 
         if($formGazouillis->isSubmitted() && $formGazouillis->isValid())
         {
-            $user = $this->getUser();
-            $gazouillis->setUser($user);
+            $gazouillis->setUser($this->getUser());
             $gazouillis->setIsPublished(0);
             $gazouillis->setDateCreated(new \DateTime('now'));
             $em->persist($gazouillis);

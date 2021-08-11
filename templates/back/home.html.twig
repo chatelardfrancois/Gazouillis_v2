@@ -26,7 +26,7 @@
                         Pseudo<span id='gazouillis-date'>le {{ g.dateCreated | date('d/m/Y') }} à {{ g.dateCreated | date('H:i') }} </span>
                     </div>
                     <div id='gazouillis-message'>
-                        {{ g.content }}
+                        {{ g.content|trans|nl2br }}
                     </div>
                     <div style = "margin-left: 1.5rem;">
 

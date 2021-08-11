@@ -346,18 +346,19 @@ form >div > div > ul > li{
     background-color: rgb(215, 0, 0);
 }
 
-.popover__title:hover{
+.popover_date_title:hover{
     text-decoration: underline;
 }
 
-.popover__wrapper {
+.popover_date_wrapper {
     position: relative;
     display: inline-block;
+    z-index: 0;
 }
-.popover__wrapper>a{
+.popover_date_wrapper>a{
     text-decoration:none;
 }
-.popover__content {
+.popover_date_content {
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -367,16 +368,82 @@ form >div > div > ul > li{
     justify-content: center;
     align-content: center;
 }
-.popover__wrapper:hover .popover__content {
+.popover_date_wrapper:hover .popover_date_content {
     z-index: 10;
     opacity: 1;
     visibility: visible;
     transition-delay: 0.7s;
 }
-.popover__message {
+.popover_date_message {
     text-align: center;
     color: white;
     font-size: 0.9rem;
     padding: 0rem 0.2rem 0rem 0.2rem;
     font-weight: initial;
+}
+
+
+
+.popover__title:hover>.decoration{
+    text-decoration: underline;
+}
+
+.popover__wrapper>a{
+    text-decoration:none;
+}
+.popover__content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+    border-radius: 16px;
+    width: 300px;
+    margin-left:-3rem;
+    margin-top: 0.75rem;
+    -webkit-transition-delay: 0.5s!important;
+    -webkit-transition-duration: 0.3s;
+    z-index: 1;
+    cursor: default;
+}
+
+.popover__wrapper:hover .popover__content {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s!important;
+    transition-duration : 0.3s;
+
+}
+.popover__message {
+    color: black;
+    font-size: 0.9rem;
+    padding: 0 0.2rem 0 0.2rem;
+    font-weight: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.popover__message>*{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.popover__message>div>#profile-pic{
+    margin-left: 0;
+    margin-right: 0;
+    width: max-content;
+}
+.popover__message>div>a{
+    cursor:pointer;
+}
+.popover__message>div>a:hover #gazouillis-pseudo{
+    text-decoration: underline;
+}
+.fa-check-circle{
+    color: rgb(29, 161, 242);
 }
