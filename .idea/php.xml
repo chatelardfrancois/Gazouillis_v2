@@ -132,9 +132,29 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
+      <path value="$PROJECT_DIR$/vendor/vendor/laminas" />
+      <path value="$PROJECT_DIR$/vendor/vendor/webmozart" />
+      <path value="$PROJECT_DIR$/vendor/vendor/myclabs" />
+      <path value="$PROJECT_DIR$/vendor/vendor/psr" />
+      <path value="$PROJECT_DIR$/vendor/vendor/egulias" />
+      <path value="$PROJECT_DIR$/vendor/vendor/bin" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/vendor/doctrine" />
+      <path value="$PROJECT_DIR$/vendor/vendor/sensio" />
+      <path value="$PROJECT_DIR$/vendor/vendor/symfony" />
+      <path value="$PROJECT_DIR$/vendor/vendor/twig" />
+      <path value="$PROJECT_DIR$/vendor/vendor/nikic" />
+      <path value="$PROJECT_DIR$/vendor/vendor/theseer" />
+      <path value="$PROJECT_DIR$/vendor/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phar-io" />
+      <path value="$PROJECT_DIR$/vendor/vendor/friendsofphp" />
+      <path value="$PROJECT_DIR$/vendor/vendor/monolog" />
+      <path value="$PROJECT_DIR$/vendor/vendor/sebastian" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpspec" />
+      <path value="$PROJECT_DIR$/vendor/vendor/phpdocumentor" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml.dist" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />

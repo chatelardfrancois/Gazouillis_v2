@@ -37,16 +37,16 @@
                                 {% set leftSec = difference.s %}
                                 {% if leftDays<=2 %}
                                     {% if (leftDays>0) %}
-                                    {{ leftDays }} j
+                                    {{ leftDays }}j
                                     {% endif %}
-                                    {% if (leftHours>0) %}
-                                    {{ leftHours }} h
+                                    {% if (leftHours>0 and leftDays<1) %}
+                                    {{ leftHours }}h
                                     {% endif %}
-                                    {% if((leftMinutes > 0) and (leftHours<1)) %}
-                                    {{ leftMinutes }} min
+                                    {% if((leftMinutes > 0) and (leftHours<1) and leftDays<1) %}
+                                    {{ leftMinutes }}min
                                     {% endif %}
-                                    {% if((leftMinutes < 1) and (leftHours<1)) %}
-                                    {{ leftSec }} s
+                                    {% if((leftMinutes < 1) and (leftHours<1) and lefDays<1) %}
+                                    {{ leftSec }}s
                                     {% endif %}
                                 {% else %}
                                     {{ g.dateCreated | format_datetime(locale='fr',pattern="d MMMM") }}

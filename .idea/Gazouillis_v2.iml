@@ -135,6 +135,26 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/intl-extra" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/laminas" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/webmozart" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/myclabs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/psr" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/egulias" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/doctrine" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/sensio" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/nikic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/theseer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/phar-io" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/friendsofphp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/sebastian" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/phpspec" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/phpdocumentor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
